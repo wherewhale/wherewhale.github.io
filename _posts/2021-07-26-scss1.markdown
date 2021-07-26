@@ -1,0 +1,116 @@
+---
+layout: post
+title: "SCSS 연구 1일차"
+date: 2021-07-27 00:10:35 +0900
+categories: Front-end
+---
+
+---
+
+# 1. SASS
+
+SASS(Syntactically Awesome Style Sheets) -> '문법적으로 짱 멋지다는 뜻!'
+SASS는 CSS를 처리하기 이전 사용자가 처리해야 했던 복잡한 코드를 간결하게 만들어주는 전처리기(pre-processor)같은 역할을 수행합니다.
+
+## 얼마나 간결하길래?
+
+sass
+
+```sass
+$primary : #0054FF
+
+body
+    color:$primary
+```
+
+scss
+
+```scss
+$primary: #0054ff;
+
+body {
+  color: $primary;
+}
+```
+
+css
+
+```css
+:root {
+  --primary-color: #0054ff;
+}
+
+body {
+  color: var(--primary-color);
+}
+```
+
+위 세 코드는 모두 같은 것을 의미합니다. 하지만, 코드의 길이와 문법이 모두 다르며, sass > scss > css 순으로 간결해지고 있는 것을 확인할 수 있습니다.
+이는 가독성을 높여주며, 높아진 가독성을 통해 유지보수와 재활용성을 높여줄 수 있다는 장점을 가집니다.
+
+더 많은 [차이점][link]들은 링크에서 확인할 수 있습니다. :)
+
+[link]: https://sass-lang.com/guide "sass 공식문서"
+
+<br>
+<br>
+
+# 2. React와의 호환성
+
+.sass, .scss 확장자는 react 라이브러리에서는 곧바로 사용할 수 없습니다. (import 할 수 없으며, 코드를 해석하지 못하는 문제 발생...)
+
+<br>
+<img src="/assets/image/scss1_error.png" width="90%" title="리액트 에러" alt="error_image"/>
+<br>
+
+과거에는 yarn eject(npm 패키지 내의 설정파일 및 스크립트를 직접 수정할 수 있도록 추출하는 과정)를 통해 css 복사, 붙여넣기 sass-loader를 추가 ... 등 설정파일을 건드리는 과정조차 두려운 초보자들에게는 복잡한 과정이었다고 볼 수 있습니다.
+
+<p>
+현재는 'npm install node-sass' 혹은 'yarn add node-sass'로 node-sass를 설치하면 scss 확장자를 곧바로 사용할 수 있게 되었습니다.
+</p>
+<span style="color: gray; text-decoration : line-through">
+참 좋은 세상이다....
+</span>
+
+<br>
+
+npm 이용 시
+
+```
+$ npm install node-sass
+```
+
+<br>
+yarn 이용 시
+
+```
+$ yarn add node-sass
+```
+
+<br>
+<br>
+# 3. 왜 이번엔 SCSS?
+
+위에서 정리했다시피 코드의 간결성을 위해 사용하는 SASS는, 분명히 다양한 장점을 가지고 있습니다.
+<br>
+
+- 기능하는 코드와 디자인하는 코드의 분리
+- CSS보다 높은 가독성
+- 유지보수의 편리성
+
+<br>
+<br>
+기존에 제가 사용했던 styled-component 방식도 분명히 큰 장점을 지니고 있으나, 변수를 쉽게 선언하고 바꿀 수 있다는 점에서 이제 취향차이라고 밖에 볼 수 없는 상황까지 발전해버렸습니다. ㅎㅎ;
+<br>
+기존보다 훨씬 다양하고 많은 개발 프레임을 경험해보고자 이번 스낵프로젝트에서 SCSS를 선정하게 되었고, Atomic Structure에 쫙쫙 달라붙는 프레임을 구성해보고자 합니다.
+<br>
+<br>
+다음 게시물에서는 SCSS 미디어쿼리를 유용하게 적용시킬 수 있는 **변수 선언, 믹스인** 등에 대해 공부해보겠습니다.
+<br>
+오늘은 여기까지.
+<br>
+<br>
+<br>
+<br>
+
+---
